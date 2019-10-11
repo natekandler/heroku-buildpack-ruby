@@ -1057,19 +1057,19 @@ params = CGI.parse(uri.query || "")
   end
 
   def run_assets_precompile_rake_task
-    instrument 'ruby.run_assets_precompile_rake_task' do
+    # instrument 'ruby.run_assets_precompile_rake_task' do
 
-      precompile = rake.task("assets:precompile")
-      return true unless precompile.is_defined?
+    #   precompile = rake.task("assets:precompile")
+    #   return true unless precompile.is_defined?
 
-      topic "Precompiling assets"
-      precompile.invoke(env: rake_env)
-      if precompile.success?
-        puts "Asset precompilation completed (#{"%.2f" % precompile.time}s)"
-      else
-        precompile_fail(precompile.output)
-      end
-    end
+    #   topic "Precompiling assets"
+    #   precompile.invoke(env: rake_env)
+    #   if precompile.success?
+    #     puts "Asset precompilation completed (#{"%.2f" % precompile.time}s)"
+    #   else
+    #     precompile_fail(precompile.output)
+    #   end
+    # end
   end
 
   def precompile_fail(output)
